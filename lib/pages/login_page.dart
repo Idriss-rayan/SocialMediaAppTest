@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newproject/pages/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -18,11 +19,10 @@ class LoginPage extends StatelessWidget {
                 Text(
                   "Hello welcome back !",
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Urbanist'
-                  ),
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Urbanist'),
                 ),
                 SizedBox(height: 16),
                 Text(
@@ -79,7 +79,7 @@ class LoginPage extends StatelessWidget {
                           MaterialStateProperty.all<Color>(Color(0xFFF6A206)),
                     ),
                     onPressed: () {
-                      print("the button is clicked");
+                      Navigator.of(context).pushNamed('/home');
                     },
                     child: Text(
                       "Log in",
@@ -92,23 +92,20 @@ class LoginPage extends StatelessWidget {
                 ),
                 Spacer(),
                 Text(
-                    "Or sign in with",
+                  "Or sign in with",
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
                 SizedBox(height: 16),
-
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
                         Radius.circular(16),
-                      )
-                    )
-                  ),
+                      ))),
                   onPressed: () {
                     print("button clicked");
                   },
@@ -121,7 +118,7 @@ class LoginPage extends StatelessWidget {
                         height: 22,
                       ),
                       SizedBox(
-                          width: 8,
+                        width: 8,
                       ),
                       Text(
                         "Login with Google",
@@ -167,22 +164,22 @@ class LoginPage extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                        "Don't have account?",
+                      "Don't have account?",
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
                     TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                          foregroundColor: Colors.amber,
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.amber,
+                      ),
+                      child: Text(
+                        "Sign up",
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
                         ),
-                        child: Text(
-                            "Sign up",
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
+                      ),
                     ),
                   ],
                 ),
