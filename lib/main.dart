@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newproject/pages/home_page.dart';
 import 'package:newproject/pages/login_page.dart';
 import 'package:newproject/pages/main_page.dart';
+import 'package:newproject/pages/test_page.dart';
 import 'package:newproject/styles/app_colors.dart';
 
 void main()
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
 
       ),
+      //home: TestPage(),
       initialRoute: '/',
       routes: {
         '/':(context) => LoginPage(),
