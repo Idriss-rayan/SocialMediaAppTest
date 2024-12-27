@@ -79,7 +79,7 @@ class LoginPage extends StatelessWidget {
                           MaterialStateProperty.all<Color>(Color(0xFFF6A206)),
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/home');
+                      Navigator.of(context).pushReplacementNamed('/main');
                     },
                     child: Text(
                       "Log in",
