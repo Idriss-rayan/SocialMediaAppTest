@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newproject/login_page.dart';
+import 'package:newproject/styles/app_colors.dart';
 
 void main()
 {
@@ -12,7 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Urbanist'),
+      theme: ThemeData(
+          fontFamily: 'Urbanist',
+        scaffoldBackgroundColor: AppColors.background,
+
+      ),
       home: LoginPage(),
     );
   }
