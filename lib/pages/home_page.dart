@@ -4,6 +4,7 @@ import 'package:newproject/styles/app_colors.dart';
 import 'package:newproject/styles/app_text.dart';
 
 import '../components/post_items.dart';
+import '../components/toolbar.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -14,23 +15,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     mockUsersFromServer();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.background,
-        elevation: 4,
-        centerTitle: false,
-        title: Text(
-          "5minute flutter",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        actions: [
-          Icon(
-            Icons.location_on_outlined,
-            color: Colors.white,
-          ),
-        ],
-      ),
+      appBar: Toolbar(title:
+      '5minuteflutter',
+        actions: [],),
       body: ListView.separated(
         itemBuilder: (context, index) {
           return PostItems(
