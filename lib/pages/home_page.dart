@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.background,
-        elevation: 8,
+        elevation: 4,
         centerTitle: false,
         title: Text(
           "5minute flutter",
@@ -19,7 +19,10 @@ class HomePage extends StatelessWidget {
           ),
         ),
         actions: [
-          Icon(Icons.location_on_outlined),
+          Icon(
+            Icons.location_on_outlined,
+            color: Colors.white,
+          ),
         ],
       ),
       body: ListView(
@@ -51,7 +54,7 @@ class HomePage extends StatelessWidget {
 
   List<Widget> mockUsersFromServer(){
     List<Widget> users = [];
-    for (var i = 0; i<3; i++){
+    for (var i = 0; i<30; i++){
       users.add(_userItem());
     }
     return users;
