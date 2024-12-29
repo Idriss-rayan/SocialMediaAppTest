@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:newproject/config/app_strings.dart';
 import 'package:newproject/styles/app_colors.dart';
 import 'package:newproject/styles/app_text.dart';
 
@@ -15,8 +16,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     mockUsersFromServer();
     return Scaffold(
-      appBar: Toolbar(title:
-      '5minuteflutter',
+      appBar: Toolbar(title:AppStrings.appName,
         actions: [
           IconButton(
             onPressed: () {},

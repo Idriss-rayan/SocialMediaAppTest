@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:newproject/config/app_routes.dart';
+import 'package:newproject/config/app_strings.dart';
 import 'package:newproject/pages/home_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -17,7 +19,7 @@ class LoginPage extends StatelessWidget {
               children: [
                 Spacer(),
                 Text(
-                  "Hello welcome back !",
+                  AppStrings.hellowelcome,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
@@ -26,7 +28,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  "Login to continue",
+                  AppStrings.logintocontinue,
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -36,7 +38,7 @@ class LoginPage extends StatelessWidget {
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white.withOpacity(0.5),
-                    hintText: "Username",
+                    hintText: AppStrings.username,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       borderSide: BorderSide.none,
@@ -79,7 +81,7 @@ class LoginPage extends StatelessWidget {
                           MaterialStateProperty.all<Color>(Color(0xFFF6A206)),
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/main');
+                      Navigator.of(context).pushReplacementNamed(AppRoutes.main);
                     },
                     child: Text(
                       "Log in",

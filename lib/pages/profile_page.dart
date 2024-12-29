@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newproject/components/toolbar.dart';
+import 'package:newproject/config/app_routes.dart';
 import 'package:newproject/styles/app_text.dart';
 
 enum ProfileMenu { edit, logout }
@@ -18,7 +19,7 @@ class ProfilePage extends StatelessWidget {
             onSelected: (value){
               switch(value){
                 case ProfileMenu.edit:
-                  Navigator.of(context).pushNamed('/edit_profile');
+                  Navigator.of(context).pushNamed(AppRoutes.editProfile);
                   break;
                 case ProfileMenu.logout:
                   print('good');
