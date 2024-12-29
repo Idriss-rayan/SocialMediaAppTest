@@ -17,7 +17,12 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: Toolbar(title:
       '5minuteflutter',
-        actions: [],),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.location_on_outlined , color: Colors.white,),
+          ),
+        ],),
       body: ListView.separated(
         itemBuilder: (context, index) {
           return PostItems(
