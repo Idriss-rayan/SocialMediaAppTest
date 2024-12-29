@@ -18,7 +18,7 @@ class ProfilePage extends StatelessWidget {
             onSelected: (value){
               switch(value){
                 case ProfileMenu.edit:
-                  print('salut');
+                  Navigator.of(context).pushNamed('/edit_profile');
                   break;
                 case ProfileMenu.logout:
                   print('good');
