@@ -14,22 +14,29 @@ class ProfilePage extends StatelessWidget {
       appBar: Toolbar(
         title: "Profile",
         actions: [
-          PopupMenuButton(itemBuilder: (context) {
+          PopupMenuButton<ProfileMenu>(
+            onSelected: (value){
+              switch(value){
+                case ProfileMenu.edit:
+                  print('salut');
+                  break;
+                case ProfileMenu.logout:
+                  print('good');
+                  break;
+
+                default:
+              }
+            },
+              icon: const Icon(Icons.more_vert_rounded),
+              itemBuilder: (context) {
             return [
-              PopupMenuItem<int>(
-                onSelected: (value){
-                  switch(value){
-                    case 1:
-                      break;
-                    default:
-                  }
-                },
+              PopupMenuItem(
                 child: Text('Edit'),
-                value: 1,
+                value: ProfileMenu.edit,
               ),
               PopupMenuItem(
                 child: Text('Log out'),
-                value: 2,
+                value: ProfileMenu.logout,
               ),
             ];
           })
@@ -37,10 +44,14 @@ class ProfilePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.asset(
-            'assets/temp/img.png',
-            width: 90,
-            height: 90,
+          ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+            child: Image.asset(
+              'assets/temp/post.png',
+              width: 90,
+              height: 90,
+            ),
+
           ),
           Text(
             'sadio mane',
