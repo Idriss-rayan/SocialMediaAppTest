@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newproject/pages/edit_profil.dart';
+import 'package:newproject/pages/edit_profile_page.dart';
 import 'package:newproject/pages/home_page.dart';
 import 'package:newproject/pages/login_page.dart';
 import 'package:newproject/pages/main_page.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         '/':(context) => LoginPage(),
         '/home': (context) => HomePage(),
         '/main': (context) => MainPage(),
-        '/edit_profil':(context)  => EditProfil(),
+        '/edit_profile':(context)  => EditProfilePage(),
 
       },
     );
