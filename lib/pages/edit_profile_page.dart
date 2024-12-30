@@ -70,13 +70,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 height: 16,
               ),
               AppTextField(hint: AppStrings.birthday),
-
               Row(
                 children: [
-                  SizedBox(
-                    width: 100,
+                  Expanded(
                     child: RadioListTile(
                       title: Text(AppStrings.male),
+                      visualDensity: const VisualDensity(
+                          horizontal: VisualDensity.maximumDensity,
+                          vertical: VisualDensity.minimumDensity),
                       value: Gender.male,
                       groupValue: gender,
                       onChanged: (value) {
@@ -86,10 +87,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       },
                     ),
                   ),
-                  SizedBox(
-                    width: 100,
+                  Expanded(
                     child: RadioListTile(
                       title: Text(AppStrings.female),
+                      visualDensity: const VisualDensity(
+                          horizontal: VisualDensity.maximumDensity,
+                          vertical: VisualDensity.minimumDensity),
                       value: Gender.female,
                       groupValue: gender,
                       onChanged: (value) {
@@ -99,10 +102,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       },
                     ),
                   ),
-                  SizedBox(
-                    width: 100,
+                  Expanded(
                     child: RadioListTile(
                       title: Text(AppStrings.other),
+                      visualDensity: const VisualDensity(
+                          horizontal: VisualDensity.maximumDensity,
+                          vertical: VisualDensity.minimumDensity),
                       value: Gender.other,
                       groupValue: gender,
                       onChanged: (value) {
