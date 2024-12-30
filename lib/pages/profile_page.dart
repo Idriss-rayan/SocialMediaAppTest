@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newproject/components/toolbar.dart';
+import 'package:newproject/components/user_avatar.dart';
 import 'package:newproject/config/app_routes.dart';
 import 'package:newproject/styles/app_text.dart';
 
@@ -16,44 +17,36 @@ class ProfilePage extends StatelessWidget {
         title: "Profile",
         actions: [
           PopupMenuButton<ProfileMenu>(
-            onSelected: (value){
-              switch(value){
-                case ProfileMenu.edit:
-                  Navigator.of(context).pushNamed(AppRoutes.editProfile);
-                  break;
-                case ProfileMenu.logout:
-                  print('good');
-                  break;
+              onSelected: (value) {
+                switch (value) {
+                  case ProfileMenu.edit:
+                    Navigator.of(context).pushNamed(AppRoutes.editProfile);
+                    break;
+                  case ProfileMenu.logout:
+                    print('good');
+                    break;
 
-                default:
-              }
-            },
+                  default:
+                }
+              },
               icon: const Icon(Icons.more_vert_rounded),
               itemBuilder: (context) {
-            return [
-              PopupMenuItem(
-                child: Text('Edit'),
-                value: ProfileMenu.edit,
-              ),
-              PopupMenuItem(
-                child: Text('Log out'),
-                value: ProfileMenu.logout,
-              ),
-            ];
-          })
+                return [
+                  PopupMenuItem(
+                    child: Text('Edit'),
+                    value: ProfileMenu.edit,
+                  ),
+                  PopupMenuItem(
+                    child: Text('Log out'),
+                    value: ProfileMenu.logout,
+                  ),
+                ];
+              })
         ],
       ),
       body: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
-            child: Image.asset(
-              'assets/temp/post.png',
-              width: 90,
-              height: 90,
-            ),
-
-          ),
+          UserAvatar(size: 90,),
           Text(
             'sadio mane',
             style: AppText.header2,
