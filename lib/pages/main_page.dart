@@ -17,8 +17,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[currentIndex],
-      bottomNavigationBar: MyBottomNavigation()
+        body: pages[currentIndex], bottomNavigationBar: MyBottomNavigation()
 //       BottomNavigationBar(
 //         items: [
 //           BottomNavigationBarItem(
@@ -57,7 +56,7 @@ class _MainPageState extends State<MainPage> {
 //         showUnselectedLabels: false,
 //         backgroundColor: Colors.amber,
 //   ),
-    );
+        );
   }
 
   final pages = [
@@ -74,8 +73,6 @@ class _MainPageState extends State<MainPage> {
     ProfilePage(),
   ];
 }
-
-
 
 class MyBottomNavigation extends StatefulWidget {
   const MyBottomNavigation({super.key});
@@ -99,8 +96,17 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
             child: Container(
               height: 70,
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(25)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(25))),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: IconButton(
+                          onPressed: () {}, icon: Icon(
+                          Icons.home_filled,
+                        color: Colors.black,
+                      )))
+                ],
               ),
             ),
           ),
@@ -122,16 +128,3 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
