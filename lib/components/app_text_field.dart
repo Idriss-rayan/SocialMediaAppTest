@@ -10,9 +10,13 @@ class AppTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white.withOpacity(0.5),
+        fillColor: Colors.white.withOpacity(0.3),
         hintText: hint,
-        border: OutlineInputBorder(
+        labelText: hint,
+        labelStyle: TextStyle(
+          color: Colors.white,
+        ),
+        border: UnderlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           borderSide: BorderSide.none,
         ),
