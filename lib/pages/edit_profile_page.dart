@@ -70,13 +70,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 height: 16,
               ),
               AppTextField(hint: AppStrings.birthday),
+              SizedBox(height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("Gender"),
+                ],
+              ),
               Row(
                 children: [
                   Expanded(
                     child: RadioListTile(
                       title: Text(AppStrings.male),
                       visualDensity: const VisualDensity(
-                          horizontal: VisualDensity.maximumDensity,
+                          horizontal: VisualDensity.minimumDensity,
                           vertical: VisualDensity.minimumDensity),
                       value: Gender.male,
                       groupValue: gender,
@@ -91,7 +98,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     child: RadioListTile(
                       title: Text(AppStrings.female),
                       visualDensity: const VisualDensity(
-                          horizontal: VisualDensity.maximumDensity,
+                          horizontal: VisualDensity.minimumDensity,
                           vertical: VisualDensity.minimumDensity),
                       value: Gender.female,
                       groupValue: gender,
@@ -106,7 +113,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     child: RadioListTile(
                       title: Text(AppStrings.other),
                       visualDensity: const VisualDensity(
-                          horizontal: VisualDensity.maximumDensity,
+                          horizontal: VisualDensity.minimumDensity,
                           vertical: VisualDensity.minimumDensity),
                       value: Gender.other,
                       groupValue: gender,
