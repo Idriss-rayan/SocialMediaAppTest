@@ -1,0 +1,6 @@
+<button style="background: #4CAF50; border: none; border-radius: 5px; padding: 8px 12px; color: white; cursor: pointer;">
+    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 13H5V11H11V5H13V11H19V13H13V19H11V13Z" fill="white"/>
+    </svg>
+    Ajouter
+</button>
