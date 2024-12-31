@@ -102,10 +102,39 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
                 children: [
                   Expanded(
                       child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.home,
+                            color: Colors.grey,
+                          )
+                      )
+                  ),
+                  Expanded(
+                      child: IconButton(
                           onPressed: () {}, icon: Icon(
-                          Icons.home_filled,
-                        color: Colors.black,
-                      )))
+                        Icons.supervised_user_circle_rounded,
+                        color: Colors.grey,
+                      )
+                      )
+                  ),
+                  Expanded(
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.home,
+                            color: Colors.grey,
+                          )
+                      )
+                  ),
+                  Expanded(
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.messenger,
+                            color: Colors.grey,
+                          )
+                      )
+                  ),
                 ],
               ),
             ),
@@ -120,6 +149,15 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
               decoration: BoxDecoration(
                 color: AppColors.primary,
                 shape: BoxShape.circle,
+              ),
+              child:  Expanded(
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.add,
+                        color: Colors.grey,
+                      )
+                  )
               ),
             ),
           )
