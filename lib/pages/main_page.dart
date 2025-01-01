@@ -74,14 +74,18 @@ class _MainPageState extends State<MainPage> {
   ];
 }
 
-class MyBottomNavigation extends StatefulWidget {
-  const MyBottomNavigation({super.key});
-
-  @override
-  State<MyBottomNavigation> createState() => _MyBottomNavigationState();
+enum Menus {
+  home,
+  favorite,
+  add,
+  user,
 }
 
-class _MyBottomNavigationState extends State<MyBottomNavigation> {
+class MyBottomNavigation extends StatelessWidget {
+  final int currentIndex;
+  final ValueChanged<Menus> onTap;
+  const MyBottomNavigation({super.key, required this.currentIndex, required this.onTap});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -102,39 +106,38 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
                 children: [
                   Expanded(
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            onTap(1);
+                          },
                           icon: Icon(
                             Icons.home,
                             color: Colors.grey,
-                          )
-                      )
-                  ),
-                  Expanded(
-                      child: IconButton(
-                          onPressed: () {}, icon: Icon(
-                        Icons.supervised_user_circle_rounded,
-                        color: Colors.grey,
-                      )
-                      )
-                  ),
+                          ))),
                   Expanded(
                       child: IconButton(
                           onPressed: () {},
                           icon: Icon(
+                            Icons.supervised_user_circle_rounded,
+                            color: Colors.grey,
+                          ))),
+                  // Spacer(),
+                  Expanded(
+                    child: Container(),
+                  ),
+                  Expanded(
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
                             Icons.home,
                             color: Colors.grey,
-                          )
-                      )
-                  ),
+                          ))),
                   Expanded(
                       child: IconButton(
                           onPressed: () {},
                           icon: Icon(
                             Icons.messenger,
                             color: Colors.grey,
-                          )
-                      )
-                  ),
+                          ))),
                 ],
               ),
             ),
@@ -150,19 +153,11 @@ class _MyBottomNavigationState extends State<MyBottomNavigation> {
                 color: AppColors.primary,
                 shape: BoxShape.circle,
               ),
-              child:  Expanded(
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.add,
-                        color: Colors.grey,
-                      )
-                  )
-              ),
+              padding: const EdgeInsets.all(15),
+              child: SvgPicture.asset("assets/svg/add.svg"),
             ),
           )
         ],
       ),
     );
   }
-}
