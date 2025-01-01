@@ -13,50 +13,20 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int currentIndex = 0;
+  Menus currentIndex = Menus.home;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: pages[currentIndex], bottomNavigationBar: MyBottomNavigation()
-//       BottomNavigationBar(
-//         items: [
-//           BottomNavigationBarItem(
-//             icon: SvgPicture.asset('assets/svg/home.svg'),
-//             label: 'Home',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: SvgPicture.asset('assets/svg/favorite.svg'),
-//             label: 'Favorite',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(
-//                 Icons.add,
-//               size: 24,
-//               color: Colors.black,
-//             ),
-//             label: 'Add Post',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: SvgPicture.asset('assets/svg/mess.svg'),
-//             label: 'Messages',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: SvgPicture.asset('assets/svg/user.svg'),
-//             label: 'Users',
-//           ),
-//         ],
-//         currentIndex: currentIndex,
-//         onTap: (index) {
-//           setState(() {
-//             currentIndex = index;
-//           });
-//         },
-//         type: BottomNavigationBarType.fixed,
-//         showSelectedLabels: false,
-//         showUnselectedLabels: false,
-//         backgroundColor: Colors.amber,
-//   ),
-        );
+        body: pages[currentIndex.index], bottomNavigationBar: MyBottomNavigation(
+      currentIndex: currentIndex,
+      onTap: (value){
+          setState(() {
+            currentIndex = value;
+          });
+    },
+    ),
+
+    );
   }
 
   final pages = [
@@ -78,11 +48,12 @@ enum Menus {
   home,
   favorite,
   add,
+  messages,
   user,
 }
 
 class MyBottomNavigation extends StatelessWidget {
-  final int currentIndex;
+  final Menus currentIndex;
   final ValueChanged<Menus> onTap;
   const MyBottomNavigation({super.key, required this.currentIndex, required this.onTap});
 
@@ -106,18 +77,16 @@ class MyBottomNavigation extends StatelessWidget {
                 children: [
                   Expanded(
                       child: IconButton(
-                          onPressed: () {
-                            onTap(1);
-                          },
+                          onPressed: () => onTap(Menus.home),
                           icon: Icon(
                             Icons.home,
                             color: Colors.grey,
                           ))),
                   Expanded(
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () => onTap(Menus.favorite),
                           icon: Icon(
-                            Icons.supervised_user_circle_rounded,
+                            Icons.favorite,
                             color: Colors.grey,
                           ))),
                   // Spacer(),
@@ -126,16 +95,16 @@ class MyBottomNavigation extends StatelessWidget {
                   ),
                   Expanded(
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () => onTap(Menus.messages),
                           icon: Icon(
-                            Icons.home,
+                            Icons.messenger,
                             color: Colors.grey,
                           ))),
                   Expanded(
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () => onTap(Menus.user),
                           icon: Icon(
-                            Icons.messenger,
+                            Icons.supervised_user_circle,
                             color: Colors.grey,
                           ))),
                 ],
@@ -146,18 +115,51 @@ class MyBottomNavigation extends StatelessWidget {
             left: 0,
             right: 0,
             top: 0,
-            child: Container(
-              width: 64,
-              height: 64,
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                shape: BoxShape.circle,
+            child: GestureDetector(
+              onTap: () => onTap(Menus.add),
+              child: Container(
+                width: 64,
+                height: 64,
+                decoration: BoxDecoration(
+                  color: AppColors.primary,
+                  shape: BoxShape.circle,
+                ),
+                padding: const EdgeInsets.all(15),
+                child: SvgPicture.asset(
+                    "assets/svg/add.svg",
+                  colorFilter:
+                  ColorFilter.mode(
+                    currentIndex==Menus.home?
+                      Colors.black : Colors.black.withOpacity(0.3), BlendMode.srcIn,
+                  ),
+                ),
               ),
-              padding: const EdgeInsets.all(15),
-              child: SvgPicture.asset("assets/svg/add.svg"),
             ),
           )
         ],
       ),
     );
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
