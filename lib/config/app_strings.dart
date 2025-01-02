@@ -31,6 +31,7 @@ class AppStrings{
   static const female = 'Female';
   static const other = 'Other';
   static const gender = "  Gender: ";
+  static const nearby = 'Nearby';
 
 
 }

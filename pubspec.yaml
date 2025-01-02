@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.5
-  flutter_map: ^6.2.0
+  flutter_map: ^6.2.1
   latlong2: ^0.9.1
 
 

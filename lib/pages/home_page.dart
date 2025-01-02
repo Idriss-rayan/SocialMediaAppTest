@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:newproject/config/app_routes.dart';
 import 'package:newproject/config/app_strings.dart';
 import 'package:newproject/styles/app_colors.dart';
 import 'package:newproject/styles/app_text.dart';
@@ -19,7 +20,9 @@ class HomePage extends StatelessWidget {
       appBar: Toolbar(title:AppStrings.appName,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.nearby);
+            },
             icon: Icon(Icons.location_on_outlined , color: Colors.white,),
           ),
         ],),
