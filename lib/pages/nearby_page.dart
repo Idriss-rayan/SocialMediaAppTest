@@ -12,28 +12,48 @@ class NearbyPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0XFF1A2947),
       appBar: Toolbar(title: AppStrings.nearby),
-      body: FlutterMap(options: MapOptions(
-        center: LatLng(51.509364, -0.128928),
-        zoom: 10
-      ),
+      body: FlutterMap(
+        options: MapOptions(center: LatLng(51.509364, -0.128928), zoom: 10),
         children: [
           TileLayer(
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             userAgentPackageName: 'dev.ces.flutter',
-
           ),
           MarkerLayer(
-              markers: [
-            Marker(point: LatLng(51.509364, -0.128928),
+            markers: [
+              Marker(
+                width: 100,
                 height: 100,
-                width: 50,
-                child: Container(
-                  color: Colors.red,
+                point: LatLng(51.509364, -0.128928),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0, vertical: 4.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(14),
+                        ),
+                      ),
+                      child: Text(
+                        'Username',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    Icon(
+                        Icons.location_on_outlined,
+                      color: Colors.blue,
+                    ),
+                  ],
                 ),
-            )
-          ])
-      ],
-),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

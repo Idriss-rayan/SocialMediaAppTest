@@ -2,18 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:newproject/config/app_routes.dart';
 import 'package:newproject/config/app_strings.dart';
 import 'package:newproject/pages/home_page.dart';
+import 'package:http/http.dart' as http;
+
+const baseUrl = 'http://localhost:55876';
 
 class LoginPage extends StatelessWidget {
+  final loginRoute = '$baseUrl/login';
   const LoginPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Padding(
-            padding: const EdgeInsets.all(80),
+            padding: const EdgeInsets.all(40),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -50,7 +56,7 @@ class LoginPage extends StatelessWidget {
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white.withOpacity(0.5),
-                      hintText: "Password",
+                      hintText: AppStrings.password,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                         borderSide: BorderSide.none,
@@ -81,7 +87,8 @@ class LoginPage extends StatelessWidget {
                           MaterialStateProperty.all<Color>(Color(0xFFF6A206)),
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed(AppRoutes.main);
+                      doLogin();
+                      //Navigator.of(context).pushReplacementNamed(AppRoutes.main);
                     },
                     child: Text(
                       "Log in",
@@ -192,5 +199,16 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<String> doLogin() async {
+    final response = await http.post(Uri.parse(loginRoute));
+    if (response.statusCode == 200){
+      print(response.body);
+      return response.body;
+    }else{
+      print ('you have error!');
+      throw Exception('Error');
+    }
   }
 }
