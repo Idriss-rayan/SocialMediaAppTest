@@ -17,7 +17,21 @@ class NearbyPage extends StatelessWidget {
         zoom: 10
       ),
         children: [
+          TileLayer(
+            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'dev.ces.flutter',
 
+          ),
+          MarkerLayer(
+              markers: [
+            Marker(point: LatLng(51.509364, -0.128928),
+                height: 100,
+                width: 50,
+                child: Container(
+                  color: Colors.red,
+                ),
+            )
+          ])
       ],
 ),
     );
