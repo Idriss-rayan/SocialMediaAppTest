@@ -8,7 +8,9 @@ const baseUrl = 'http://localhost:55876';
 
 class LoginPage extends StatelessWidget {
   final loginRoute = '$baseUrl/login';
-  const LoginPage({super.key});
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  LoginPage({super.key});
 
 
   @override
@@ -41,6 +43,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 Spacer(),
                 TextField(
+                  controller: usernameController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white.withOpacity(0.5),
@@ -53,6 +56,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 TextField(
+                  controller: passwordController,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white.withOpacity(0.5),
@@ -202,7 +206,7 @@ class LoginPage extends StatelessWidget {
   }
 
   Future<String> doLogin() async {
-    final response = await http.post(Uri.parse(loginRoute));
+    final response = await http.post(Uri.parse(loginRoute) , body: );
     if (response.statusCode == 200){
       print(response.body);
       return response.body;
