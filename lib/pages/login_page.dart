@@ -6,7 +6,7 @@ import 'package:newproject/config/app_strings.dart';
 import 'package:newproject/pages/home_page.dart';
 import 'package:http/http.dart' as http;
 
-const baseUrl = 'http://localhost:55876';
+const baseUrl = 'http://localhost:53589/login';
 
 class LoginPage extends StatelessWidget {
   final loginRoute = '$baseUrl/login';
@@ -219,7 +219,7 @@ class LoginPage extends StatelessWidget {
       return response.body;
     } else {
       print('you have error!');
-      throw Exception('Error');
+      throw Exception('Error1');
     }
   }
 }
