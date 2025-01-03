@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:newproject/config/app_routes.dart';
 import 'package:newproject/config/app_strings.dart';
@@ -12,10 +14,8 @@ class LoginPage extends StatelessWidget {
   final passwordController = TextEditingController();
   LoginPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
@@ -206,12 +206,19 @@ class LoginPage extends StatelessWidget {
   }
 
   Future<String> doLogin() async {
-    final response = await http.post(Uri.parse(loginRoute) , body: );
-    if (response.statusCode == 200){
+    final username = usernameController.text;
+    final password = passwordController.text;
+    final body = {
+      'username': username,
+      'password': password,
+    };
+    final response =
+        await http.post(Uri.parse(loginRoute), body: jsonEncode(body));
+    if (response.statusCode == 200) {
       print(response.body);
       return response.body;
-    }else{
-      print ('you have error!');
+    } else {
+      print('you have error!');
       throw Exception('Error');
     }
   }
