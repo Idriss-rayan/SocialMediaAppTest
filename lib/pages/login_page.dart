@@ -6,12 +6,13 @@ import 'package:newproject/config/app_strings.dart';
 import 'package:newproject/pages/home_page.dart';
 import 'package:http/http.dart' as http;
 
-const baseUrl = 'http://localhost:53589/login';
+const baseUrl = 'http://localhost:53244/login';
 
 class LoginPage extends StatelessWidget {
   final loginRoute = '$baseUrl/login';
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+
   LoginPage({super.key});
 
   @override
@@ -19,7 +20,10 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height,
           child: Padding(
             padding: const EdgeInsets.all(40),
             child: Column(
@@ -88,7 +92,7 @@ class LoginPage extends StatelessWidget {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Color(0xFFF6A206)),
+                      MaterialStateProperty.all<Color>(Color(0xFFF6A206)),
                     ),
                     onPressed: () {
                       doLogin();
@@ -117,8 +121,8 @@ class LoginPage extends StatelessWidget {
                       foregroundColor: Colors.black,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
-                        Radius.circular(16),
-                      ))),
+                            Radius.circular(16),
+                          ))),
                   onPressed: () {
                     print("button clicked");
                   },
@@ -146,7 +150,7 @@ class LoginPage extends StatelessWidget {
                 ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Color(0xFFFFFFFF)),
+                    MaterialStateProperty.all<Color>(Color(0xFFFFFFFF)),
                   ),
                   onPressed: () {
                     print("button clicked");
@@ -208,18 +212,26 @@ class LoginPage extends StatelessWidget {
   Future<String> doLogin() async {
     final username = usernameController.text;
     final password = passwordController.text;
-    final body = {
+
+    final body = jsonEncode({
       'username': username,
       'password': password,
-    };
-    final response =
-        await http.post(Uri.parse(loginRoute), body: jsonEncode(body));
+    });
+
+    final response = await http.post(
+      Uri.parse(loginRoute),
+      headers: {
+        'Content-Type': 'application/json', // Ajouter l'en-tête Content-Type
+      },
+      body: body,
+    );
+
     if (response.statusCode == 200) {
       print(response.body);
       return response.body;
     } else {
-      print('you have error!');
-      throw Exception('Error1');
+      print('Erreur lors de la connexion');
+      throw Exception('Erreur ${response.statusCode}');
     }
   }
 }
