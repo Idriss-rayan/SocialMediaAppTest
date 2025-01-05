@@ -95,8 +95,8 @@ class LoginPage extends StatelessWidget {
                       MaterialStateProperty.all<Color>(Color(0xFFF6A206)),
                     ),
                     onPressed: () {
-                      doLogin();
-                      //Navigator.of(context).pushReplacementNamed(AppRoutes.main);
+                      //doLogin();
+                      Navigator.of(context).pushReplacementNamed(AppRoutes.main);
                     },
                     child: Text(
                       "Log in",
